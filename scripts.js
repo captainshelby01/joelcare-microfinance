@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Client Constants
   const WHATSAPP_NUMBER = '2348123184067';
-  const MONTHLY_INTEREST_RATE = 0.05; // 5% flat interest rate per month
 
   /* ==========================================================================
      HEADER SCROLL EFFECT
@@ -159,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const calcPrincipal = document.getElementById('calc-principal');
   const calcInterest = document.getElementById('calc-interest');
+  const calcInterestLabel = document.getElementById('calc-interest-label');
   const calcTotal = document.getElementById('calc-total');
   
   const freqButtons = document.querySelectorAll('.freq-btn');
@@ -173,8 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const principal = parseInt(loanAmountInput.value, 10);
       const months = parseInt(loanTermInput.value, 10);
       
+      // Determine monthly interest rate based on term: 10% for 1-3 months, 7.5% for 4-6 months
+      const currentRate = months <= 3 ? 0.10 : 0.075;
+      
       // Flat Rate calculations
-      const totalInterest = Math.round(principal * MONTHLY_INTEREST_RATE * months);
+      const totalInterest = Math.round(principal * currentRate * months);
       const totalRepayable = principal + totalInterest;
       
       let installment = 0;
@@ -194,16 +197,21 @@ document.addEventListener('DOMContentLoaded', () => {
       
       calcPrincipal.textContent = '₦' + principal.toLocaleString();
       calcInterest.textContent = '₦' + totalInterest.toLocaleString();
+      if (calcInterestLabel) {
+        calcInterestLabel.textContent = `Estimated Interest (${(currentRate * 100).toFixed(1).replace('.0', '')}% flat/mo)`;
+      }
       calcTotal.textContent = '₦' + totalRepayable.toLocaleString();
       
       installmentDisplay.textContent = '₦' + installment.toLocaleString();
 
       // Update WhatsApp URL
       const frequencyText = currentFrequency === 'weekly' ? 'weekly' : 'monthly';
+      const rateText = `${(currentRate * 100).toFixed(1).replace('.0', '')}%`;
       const messageText = `Hi Joel Care, I calculated a loan estimate using your website:
 - Loan Amount: ₦${principal.toLocaleString()}
 - Repayment Duration: ${months} month(s)
 - Repayment Frequency: ${frequencyText}
+- Interest Rate: ${rateText} flat/mo
 - Estimated Installment: ₦${installment.toLocaleString()} per ${currentFrequency === 'weekly' ? 'week' : 'month'}
 
 I would like to enquire about starting my application.`;

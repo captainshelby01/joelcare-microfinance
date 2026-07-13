@@ -1657,6 +1657,24 @@ img {
    MEDIA QUERIES (RESPONSIVENESS SCALING UP)
    ========================================================================== */
 
+/* Small Mobile — reduce section padding */
+@media (max-width: 575px) {
+  .about-section,
+  .loans-section,
+  .calculator-section,
+  .how-it-works-section,
+  .portfolio-section,
+  .testimonials-section,
+  .faq-section,
+  .contact-section {
+    padding: 3.5rem 0;
+  }
+
+  .section-title {
+    margin-bottom: 2.5rem;
+  }
+}
+
 /* Small Tablets / Landscapes */
 @media (min-width: 576px) {
   .hero-ctas {
@@ -1670,6 +1688,19 @@ img {
   
   .calc-wrapper {
     padding: 2.25rem;
+  }
+
+  /* 2-col grids at tablet-ish sizes — less cramped than jumping straight to 3 */
+  .loans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1711,7 +1742,7 @@ img {
     grid-template-columns: 1.5fr 1fr 1.2fr;
     gap: 4rem;
   }
-
+}
 
 /* Large Tablets / Laptops */
 @media (min-width: 992px) {
@@ -1933,8 +1964,25 @@ img {
   color: var(--primary);
 }
 
+/* Manager section — medium tablets (portrait, 768-992px): keep side-by-side but compact */
+@media (min-width: 768px) and (max-width: 991px) {
+  .manager-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 2.5rem;
+  }
+
+  .manager-photo-frame {
+    width: 200px;
+    height: 240px;
+  }
+
+  .manager-section {
+    padding: 4.5rem 0;
+  }
+}
+
 /* Responsive: stack on mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .manager-section {
     padding: 4rem 0;
   }

@@ -1981,68 +1981,89 @@ img {
   }
 }
 
-/* Responsive: stack on mobile */
+/* Responsive: side-by-side on mobile (mirrors desktop layout, scaled down) */
 @media (max-width: 767px) {
   .manager-section {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
   }
 
   .manager-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
+    grid-template-columns: 115px 1fr;
+    gap: 1rem;
+    align-items: start;
+    text-align: left;
   }
 
   .manager-photo-wrap {
-    margin: 0 auto;
-    gap: 1rem;
+    gap: 0.6rem;
   }
 
   .manager-photo-frame {
-    width: 200px;
-    height: 240px;
+    width: 110px;
+    height: 138px;
+  }
+
+  .manager-photo-badge {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.55rem;
+    bottom: 0.5rem;
+    gap: 0.2rem;
   }
 
   .manager-name-card {
-    gap: 0.4rem;
-    padding: 0 1rem;
+    gap: 0.25rem;
+    padding: 0;
   }
 
   .manager-name {
-    font-size: 1rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+  }
+
+  .manager-role {
+    font-size: 0.68rem;
   }
 
   .manager-message {
-    gap: 1rem;
+    gap: 0.6rem;
+  }
+
+  .manager-message .subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
   }
 
   .manager-message h2 {
-    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+    line-height: 1.25;
   }
 
   .manager-quote {
-    text-align: left;
-    padding: 1.5rem 1.25rem 1.25rem 1.5rem;
-    margin-top: 0.5rem;
+    padding: 1.1rem 0.9rem 0.9rem 1rem;
+    margin-top: 0.25rem;
+    gap: 0.6rem;
   }
 
   .manager-quote-icon {
-    font-size: 2.25rem;
-    top: -14px;
-    left: 1rem;
+    font-size: 1.75rem;
+    top: -11px;
+    left: 0.75rem;
   }
 
   .manager-quote p {
-    font-size: 0.93rem;
-    line-height: 1.7;
+    font-size: 0.8rem;
+    line-height: 1.65;
   }
 
   .manager-quote p + p {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
   }
 
   .manager-cta {
-    align-self: center;
-    margin-top: 0.5rem;
+    align-self: flex-start;
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    padding: 0.65rem 1.1rem;
+    min-height: 40px;
   }
 }

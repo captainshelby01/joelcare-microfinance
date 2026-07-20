@@ -661,6 +661,47 @@ img {
   margin-bottom: 0;
 }
 
+.about-office-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  margin-bottom: 2rem;
+  max-width: 100%;
+  background-color: var(--bg-main);
+  display: block;
+}
+
+.about-office-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.about-office-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.about-office-card:hover .about-office-img {
+  transform: scale(1.04);
+}
+
+.about-office-caption {
+  padding: 0.85rem 1.25rem;
+  background-color: var(--bg-soft);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent);
+}
+
 /* ==========================================================================
    LOAN PRODUCTS / SERVICES SECTION
    ========================================================================== */
